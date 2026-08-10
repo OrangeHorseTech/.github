@@ -10,9 +10,20 @@ Industrial sensors, edge gateways, and high-performance field software. We devel
 
 ### 🛠️ Open Source Ecosystem
 
-* **oms-modbus** *(Upcoming)*  
-  Industrial-grade, spec-compliant Modbus protocol stack written in Rust. Built for high reliability, zero-panic runtime requirements, multi-bus routing, and complex field diagnostics.  
-  > 🚧 *Currently undergoing site testing. Repository will be public shortly.*
+### [OMS Modbus](https://github.com/OrangeHorseTech/oms-modbus) — v0.2.0 Preview
+
+[![Rust](https://img.shields.io/badge/rust-1.80%2B-orange?logo=rust)](https://www.rust-lang.org)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](https://github.com/OrangeHorseTech/oms-modbus/blob/main/LICENSE-MIT)
+
+High-performance, transport-generic Modbus library for Rust. Full Master/Slave
+for TCP, RTU, and ASCII with passive bus monitoring, spec-compliant RS-485
+timing, and auto-reconnect. Zero panics. Zero unsafe.
+
+```rust
+// One API, every transport
+let client = tcp::TcpClient::connect_with_timeout(addr, timeout).await?;
+let regs = client.read_holding_registers(1, 0, 10).await?;
+```
 
 * *More open-source protocol stacks, diagnostic libraries, and automation utilities will be published here as they pass site verification.*
 
